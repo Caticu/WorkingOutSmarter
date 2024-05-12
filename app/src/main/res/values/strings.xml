@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">WorkingOutSmarter</string>
+
+    <string name="sign_in">SIGN IN</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="or">OR</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet? <font color="#FF000000">Sign up now</font> </string>
+    <string name="forgot_password"><font color="#FF000000"> <u>Forgot password?</u></font> </string>
+    <string name="name">Name</string>
+    <string name="create_account">Create account</string>
+    <string name="createAccount">Create Account</string>
+    <string name="emailForSignUp">Email</string>
+    <string name="email_box_SignUp">Email</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="log_in">Login</string>
+    <string name="please_sign_in_to_continue">Please sign in to continue</string>
+    <string name="forgot_your_password">Forgot your Password?</string>
+    <string name="enter_your_email_address_to_reset_your_password">Enter your email address to reset your password</string>
+    <string name="submit">Submit</string>
+    <string name="sign_out">Sign out</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="reset_password">Reset password</string>
+    <string name="reset_your_password">Reset your password</string>
+    <string name="lock_image">lock_image</string>
+    <string name="or2">OR</string>
 </resources>
