@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter;
+package com.caticu.workingoutsmarter.View;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -7,7 +7,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.caticu.workingoutsmarter.ViewModel.ProfileViewModel;
+import com.caticu.workingoutsmarter.R;
+import com.caticu.workingoutsmarter.ViewModel.Profile.ProfileViewModel;
 
 public class ProfileActivity extends AppCompatActivity {
     private EditText editName;
@@ -46,13 +47,13 @@ public class ProfileActivity extends AppCompatActivity {
         // Observe save success and error here and update UI accordingly
         profileViewModel.getSaveSuccess().observe(this, success -> {
             if (success) {
-                // Handle successful save
+                // TODO call methods to firebase here
             }
         });
 
         profileViewModel.getSaveError().observe(this, error -> {
             if (error) {
-                // Handle save error
+                // TODO display toast error message
             }
         });
     }

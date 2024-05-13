@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter.Model;
+package com.caticu.workingoutsmarter.Model.Authentication;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

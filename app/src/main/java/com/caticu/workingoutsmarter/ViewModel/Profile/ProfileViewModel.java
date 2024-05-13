@@ -1,10 +1,8 @@
-package com.caticu.workingoutsmarter.ViewModel;
+package com.caticu.workingoutsmarter.ViewModel.Profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.caticu.workingoutsmarter.ProfileActivity;
 
 public class ProfileViewModel extends ViewModel
 {

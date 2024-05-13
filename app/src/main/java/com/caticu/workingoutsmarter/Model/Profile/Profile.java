@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter.Model;
+package com.caticu.workingoutsmarter.Model.Profile;
 
 public class Profile
 {

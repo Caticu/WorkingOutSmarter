@@ -13,7 +13,7 @@
         android:theme="@style/Theme.WorkingOutSmarter"
         tools:targetApi="31">
         <activity
-            android:name=".Login_Page"
+            android:name=".View.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -22,13 +22,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".View.ResetPassword"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <!-- Add any intent filters or other attributes if necessary -->
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".View.SignUpActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>

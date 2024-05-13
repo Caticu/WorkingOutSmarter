@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter;
+package com.caticu.workingoutsmarter.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,17 +6,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import com.caticu.workingoutsmarter.ViewModel.LoginViewModel;
+
+import com.caticu.workingoutsmarter.R;
+import com.caticu.workingoutsmarter.ViewModel.Authetication.LoginViewModel;
 
 
-public class Login_Page extends AppCompatActivity
+public class LoginActivity extends AppCompatActivity
 {
     private EditText mail;
     private EditText password;
     private Button login;
+    private TextView signUp;
+
+    private TextView forgotPassword;
     private ProgressBar progressBarSignIn;
     private LoginViewModel loginViewModel;
 
@@ -29,17 +35,22 @@ public class Login_Page extends AppCompatActivity
         password = findViewById(R.id.editTextTextPassword);
         login = findViewById(R.id.LogInButton);
         progressBarSignIn = findViewById(R.id.progressBarSignIn);
-
+        progressBarSignIn.setVisibility(View.INVISIBLE);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        signUp = findViewById(R.id.NoAccountTextView);
+        forgotPassword = findViewById(R.id.ForgotPasswordTextView);
 
         login.setOnClickListener(view -> signIn());
+        signUp.setOnClickListener(view -> loginViewModel.onSignUpClicked());
+        forgotPassword.setOnClickListener(view -> loginViewModel.onForgotPasswordClicked());
+
 
         // Observe login success
         loginViewModel.getLoginSuccess().observe(this, success -> {
             if (success) {
                 // Handle successful login
-                Toast.makeText(Login_Page.this, "Login successful", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Login_Page.this, ForgotPasswordActivity.class);
+                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, ResetPassword.class);
                 startActivity(intent);
                 finish();
             }
@@ -49,7 +60,7 @@ public class Login_Page extends AppCompatActivity
         loginViewModel.getLoginError().observe(this, error -> {
             if (error) {
                 // Handle failed login
-                Toast.makeText(Login_Page.this, "Login failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -57,6 +68,22 @@ public class Login_Page extends AppCompatActivity
         loginViewModel.getLoading().observe(this, loading -> {
             progressBarSignIn.setVisibility(loading ? View.VISIBLE : View.INVISIBLE);
             login.setEnabled(!loading);
+        });
+
+        loginViewModel.getSignUpClicked().observe(this, signUpClicked -> {
+            if (signUpClicked) {
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                loginViewModel.onSignUpIntentHandled();
+            }
+        });
+
+        loginViewModel.getForgotPasswordClicked().observe(this, forgotPasswordClicked -> {
+            if (forgotPasswordClicked) {
+                Intent intent = new Intent(LoginActivity.this, ResetPassword.class);
+                startActivity(intent);
+                loginViewModel.onForgotPasswordIntentHandled();
+            }
         });
     }
 

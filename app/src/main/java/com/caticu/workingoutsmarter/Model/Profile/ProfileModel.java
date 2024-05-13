@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter.Model;
+package com.caticu.workingoutsmarter.Model.Profile;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
