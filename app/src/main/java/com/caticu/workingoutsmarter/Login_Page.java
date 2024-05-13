@@ -17,6 +17,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +42,7 @@ public class Login_Page extends AppCompatActivity
     ActivityResultLauncher<Intent> activityResultLauncher;
 
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState)
     {
         firebaseAuth = FirebaseAuth.getInstance();
@@ -74,6 +76,7 @@ public class Login_Page extends AppCompatActivity
             signInWithEmailPassword(userEmail, userPassword);
         });
 
+
         // Listener to sign in using google account
         loginGoogle.setOnClickListener(view ->
         {
@@ -105,7 +108,8 @@ public class Login_Page extends AppCompatActivity
 
 
 
-    private void signInWithGoogle() {
+    private void signInWithGoogle()
+    {
 
     }
 

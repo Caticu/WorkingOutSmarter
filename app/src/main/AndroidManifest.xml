@@ -27,6 +27,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <!-- Add any intent filters or other attributes if necessary -->
         </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
