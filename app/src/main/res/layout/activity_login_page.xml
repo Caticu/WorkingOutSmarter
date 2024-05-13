@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    tools:context=".Login_Page">
+    tools:context=".Activities.Login_Page">
 
     <TextView
         android:id="@+id/LogInTextView"
