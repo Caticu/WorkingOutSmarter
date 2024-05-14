@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity
             {
                 // Handle successful login
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(LoginActivity.this, ResetPassword.class);
+                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity
             {
                 // Handle successful Google sign-in
                 Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(LoginActivity.this, ResetPassword.class);
+                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 finish();
             }

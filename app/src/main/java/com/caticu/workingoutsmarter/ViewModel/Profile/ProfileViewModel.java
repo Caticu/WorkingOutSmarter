@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.caticu.workingoutsmarter.Model.Profile.ProfileModel;
+
 public class ProfileViewModel extends ViewModel
 {
     private MutableLiveData<String> name = new MutableLiveData<>();
@@ -13,6 +15,7 @@ public class ProfileViewModel extends ViewModel
     private MutableLiveData<Boolean> saveSuccess = new MutableLiveData<>();
     private MutableLiveData<Boolean> saveError = new MutableLiveData<>();
 
+    private ProfileModel profileModel = new ProfileModel();
     public LiveData<String> getName() {
         return name;
     }
@@ -37,10 +40,22 @@ public class ProfileViewModel extends ViewModel
         return saveError;
     }
 
-    public void saveProfile(String name, int age, double height, double weight)
+    public void saveProfile(String userId, String name, int age, double height, double weight)
     {
-        // Your logic to save the profile data to Firebase goes here
-        // This method should update saveSuccess and saveError MutableLiveData
+        profileModel.saveProfile(userId, name, age, height, weight, new ProfileModel.OnProfileSaveCallback()
+        {
+            @Override
+            public void onProfileSaveSuccess()
+            {
+                saveSuccess.postValue(true);
+            }
+
+            @Override
+            public void onProfileSaveFailure(Exception e)
+            {
+                saveError.postValue(true);
+            }
+        });
     }
     public ProfileViewModel()
     {
