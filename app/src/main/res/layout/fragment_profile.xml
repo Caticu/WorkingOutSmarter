@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="39dp"
-    tools:layout_editor_absoluteY="8dp">
+    tools:context="com.caticu.workingoutsmarter.View.Fragments.ProfileFragment">
 
     <ImageView
         android:id="@+id/profileImage"
@@ -42,9 +41,10 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-      <EditText
+    <EditText
         android:id="@+id/WeightEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +54,8 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/SaveButton"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/AgeEditText"
@@ -66,7 +67,8 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextName"
@@ -78,7 +80,8 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/AgeEditText"
         app:layout_constraintStart_toStartOf="@+id/Name"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+        app:layout_constraintTop_toBottomOf="@+id/profileImage"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView6"
@@ -116,6 +119,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WeightEditText" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

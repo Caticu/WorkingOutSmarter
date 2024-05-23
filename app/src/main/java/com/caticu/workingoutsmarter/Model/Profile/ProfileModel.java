@@ -6,7 +6,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileModel {
+public class ProfileModel
+{
     private DatabaseReference profileRef;
 
     public ProfileModel()
@@ -24,20 +25,26 @@ public class ProfileModel {
                 .addOnFailureListener(e -> callback.onProfileSaveFailure(e));
     }
 
-    public void getProfile(String userId, OnProfileDataCallback callback) {
-        profileRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+    public void getProfile(String userId, OnProfileDataCallback callback)
+    {
+        profileRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                if (dataSnapshot.exists())
+                {
                     Profile profile = dataSnapshot.getValue(Profile.class);
                     callback.onProfileDataLoaded(profile);
-                } else {
+                } else
+                {
                     callback.onProfileDataNotAvailable("Profile data not found.");
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
                 callback.onProfileDataNotAvailable(databaseError.getMessage());
             }
         });
@@ -48,7 +55,8 @@ public class ProfileModel {
         void onProfileSaveSuccess();
         void onProfileSaveFailure(Exception e);
     }
-    public interface OnProfileDataCallback {
+    public interface OnProfileDataCallback
+    {
         void onProfileDataLoaded(Profile profile);
         void onProfileDataNotAvailable(String errorMessage);
     }

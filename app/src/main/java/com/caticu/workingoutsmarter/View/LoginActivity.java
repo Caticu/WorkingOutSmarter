@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.caticu.workingoutsmarter.MainActivity;
 import com.caticu.workingoutsmarter.R;
 import com.caticu.workingoutsmarter.ViewModel.Authetication.LoginViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -21,6 +22,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class LoginActivity extends AppCompatActivity
@@ -57,6 +60,17 @@ public class LoginActivity extends AppCompatActivity
         registerActivityForGoogle();
         signInGoogle.setOnClickListener(view -> loginViewModel.signInWithGoogle());
 
+        checkIfUserIsLoggedIn();
+        mail.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                mail.setText("");
+            }
+        });
+        password.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                password.setText("");
+            }
+        });
         // Observe login success
         loginViewModel.getLoginSuccess().observe(this, success ->
         {
@@ -64,7 +78,7 @@ public class LoginActivity extends AppCompatActivity
             {
                 // Handle successful login
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -121,11 +135,22 @@ public class LoginActivity extends AppCompatActivity
             {
                 // Handle successful Google sign-in
                 Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+    }
+
+    private void checkIfUserIsLoggedIn()
+    {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            // User is already logged in, navigate to WorkoutActivity
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void signIn()
@@ -151,32 +176,4 @@ public class LoginActivity extends AppCompatActivity
             }
         });
     }
-     /*
-    private void signInWithEmailPassword(String userEmail, String userPassword)
-    {
-        progressBarSignIn.setVisibility(View.VISIBLE);
-        login.setClickable(false);
-
-        firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
-        {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task)
-            {
-                if(task.isSuccessful())
-                {
-                    Intent intent = new Intent(Login_Page.this, ForgotPasswordActivity.class);
-                    startActivity(intent);
-                    finish();
-                    progressBarSignIn.setVisibility(View.INVISIBLE);
-                    Toast.makeText(Login_Page.this, "Login successful", Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Toast.makeText(Login_Page.this, "Login failed", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
- */
-
 }

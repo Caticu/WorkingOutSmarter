@@ -2,7 +2,7 @@ package com.caticu.workingoutsmarter.Model;
 
 public class User
 {
-    private static User instance;
+    private static com.caticu.workingoutsmarter.Model.User instance;
 
     public String name;
 
@@ -16,9 +16,9 @@ public class User
 
     }
 
-    public static User getInstance() {
+    public static com.caticu.workingoutsmarter.Model.User getInstance() {
         if (instance == null) {
-            instance = new User();
+            instance = new com.caticu.workingoutsmarter.Model.User();
         }
         return instance;
     }
