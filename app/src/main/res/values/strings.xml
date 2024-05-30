@@ -131,4 +131,19 @@
     <string name="exercise_name">Exercise Name</string>
     <string name="equipment_needed">Equipment needed</string>
     <string name="instructions">Instructions</string>
+    <string name="are_you_sure_you_want_to_log_out">Are you sure you want to log out?</string>
+    <string name="Sets">Sets</string>
+    <string name="repetitions">Repetitions</string>
+    <string name="add_set">Add Set</string>
+    <string name="Set">Set</string>
+    <string name="add_to_list">Add to list</string>
+    <string name="workout_name">Workout Name</string>
+    <string name="confirm">Confirm</string>
+    <string name="please_select_a_date_for_de_workout">Please select a date for de workout</string>
+    <string name="overview">Overview</string>
+    <string name="no_exercises_were_selected_please_navigate_to_workouts_page_and_add_one_to_the_list">No exercises were selected. Please navigate to Workouts page and add one to the list!</string>
+    <string name="edit_icon">" "</string>
+    <string name="logout">Logout</string>
+    <string name="profile_image">Profile Image\n</string>
+    <string name="username">username</string>
 </resources>

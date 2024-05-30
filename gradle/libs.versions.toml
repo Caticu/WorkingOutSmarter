@@ -17,6 +17,8 @@ composeBom = "2023.08.00"
 googleGmsGoogleServices = "4.4.1"
 firebaseAuth = "23.0.0"
 constraintlayout = "2.1.4"
+materialCalendarview = "2.0.1"
+picasso = "2.71828"
 playServicesAuth = "21.1.1"
 appcompat = "1.6.1"
 firebaseDatabase = "21.0.0"
@@ -48,6 +50,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+material-calendarview = { module = "com.prolificinteractive:material-calendarview", version.ref = "materialCalendarview" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }

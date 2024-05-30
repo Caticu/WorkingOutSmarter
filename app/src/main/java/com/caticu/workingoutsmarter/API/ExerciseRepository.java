@@ -3,10 +3,6 @@ package com.caticu.workingoutsmarter.API;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.caticu.workingoutsmarter.API.ExerciseAPIService;
-import com.caticu.workingoutsmarter.API.RetrofitClientInstance;
-import com.caticu.workingoutsmarter.API.WorkoutFromAPI;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,7 +33,6 @@ public class ExerciseRepository {
                     data.setValue(response.body());
                 } else {
                     data.setValue(null);
-
                 }
             }
 

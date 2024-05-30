@@ -37,19 +37,22 @@ public class WorkoutDetailFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
-        View view = inflater.inflate(R.layout.fragment_workout_detail, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_workout_detail, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         TextView nameTextView = view.findViewById(R.id.NameTextView);
         TextView equipmentTextView = view.findViewById(R.id.EquipmentTextView);
         TextView instructionsTextView = view.findViewById(R.id.InstructionsTextView);
-        if (workout != null)
-        {
+
+        if (workout != null) {
             nameTextView.setText(workout.getName());
             equipmentTextView.setText(workout.getEquipment());
             instructionsTextView.setText(workout.getInstructions());
         }
-
-        return view;
     }
 }

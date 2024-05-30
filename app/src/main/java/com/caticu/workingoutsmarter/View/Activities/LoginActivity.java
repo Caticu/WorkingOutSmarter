@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter.View;
+package com.caticu.workingoutsmarter.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity
         {
             if (forgotPasswordClicked)
             {
-                Intent intent = new Intent(LoginActivity.this, ResetPassword.class);
+                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
                 loginViewModel.onForgotPasswordIntentHandled();
             }

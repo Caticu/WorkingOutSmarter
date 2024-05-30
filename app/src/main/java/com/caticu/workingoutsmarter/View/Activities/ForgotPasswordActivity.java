@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter.View;
+package com.caticu.workingoutsmarter.View.Activities;
 
 import android.os.Bundle;
 import android.view.View;

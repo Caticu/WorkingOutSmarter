@@ -1,0 +1,21 @@
+<resources>
+    <string-array name="muscle_array">
+        <item>Select a muscle</item>
+        <item>abdominals</item>
+        <item>abductors</item>
+        <item>adductors</item>
+        <item>biceps</item>
+        <item>calves</item>
+        <item>chest</item>
+        <item>forearms</item>
+        <item>glutes</item>
+        <item>hamstrings</item>
+        <item>lats</item>
+        <item>lower_back</item>
+        <item>middle_back</item>
+        <item>neck</item>
+        <item>quadriceps</item>
+        <item>traps</item>
+        <item>triceps</item>
+    </string-array>
+</resources>

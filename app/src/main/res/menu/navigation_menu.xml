@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_active_workouts"
         android:icon="@drawable/home_button"
         android:title="@string/home" />
     <item
@@ -14,7 +14,7 @@
         android:icon="@drawable/profile_button"
         android:title="@string/profile" />
     <item
-        android:id="@+id/nav_logOut"
-        android:icon="@drawable/logout_button"
-        android:title="@string/log_out" />
+        android:id="@+id/overview"
+        android:icon="@drawable/past_workouts"
+        android:title="@string/overview" />
 </menu>

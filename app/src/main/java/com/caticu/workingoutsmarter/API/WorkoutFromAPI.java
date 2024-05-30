@@ -2,7 +2,6 @@ package com.caticu.workingoutsmarter.API;
 
 import android.graphics.Typeface;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;
 
@@ -15,7 +14,7 @@ public class WorkoutFromAPI implements Serializable {
     private String equipment;
     private String difficulty;
     private String instructions;
-
+    private boolean isSelected;
     // Getters and setters
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -32,9 +31,11 @@ public class WorkoutFromAPI implements Serializable {
     public String getDifficulty() { return difficulty; }
     public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
 
-    public SpannableStringBuilder getInstructions() { return FormatInstructions(instructions); }
+    public String getInstructions() { return instructions; }
     public void setInstructions(String instructions) { this.instructions = instructions; }
 
+    public boolean isSelected() { return isSelected; } // Add this getter
+    public void setSelected(boolean selected) { isSelected = selected; }
     // Method to format instructions text
     private SpannableStringBuilder FormatInstructions(String text) {
         if (text == null) {
