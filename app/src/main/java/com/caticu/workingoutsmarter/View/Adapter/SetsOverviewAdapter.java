@@ -15,46 +15,54 @@ import com.caticu.workingoutsmarter.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SetsOverviewAdapter extends RecyclerView.Adapter<SetsOverviewAdapter.SetViewHolder> {
+public class SetsOverviewAdapter extends RecyclerView.Adapter<SetsOverviewAdapter.SetViewHolder>
+{
 
     private List<Set> sets = new ArrayList<>();
 
-    public void setSets(List<Set> sets) {
+    public void setSets(List<Set> sets)
+    {
         this.sets = sets;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public SetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_set_fields_for_active_workouts, parent, false);
         return new SetViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SetViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SetViewHolder holder, int position)
+    {
         Set set = sets.get(position);
         holder.bind(set);
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return sets.size();
     }
 
-    static class SetViewHolder extends RecyclerView.ViewHolder {
+    static class SetViewHolder extends RecyclerView.ViewHolder
+    {
         private final TextView setLabel;
         private final EditText repetitionsEditText;
         private final EditText weightEditText;
 
-        public SetViewHolder(@NonNull View itemView) {
+        public SetViewHolder(@NonNull View itemView)
+        {
             super(itemView);
             setLabel = itemView.findViewById(R.id.setLabel);
             repetitionsEditText = itemView.findViewById(R.id.repetitionsEditText);
             weightEditText = itemView.findViewById(R.id.weightEditText);
         }
 
-        public void bind(Set set) {
+        public void bind(Set set)
+        {
             setLabel.setText(String.valueOf(set.getNumber()));
             repetitionsEditText.setText(String.valueOf(set.getRepetitions()));
             weightEditText.setText(String.valueOf(set.getWeight()));

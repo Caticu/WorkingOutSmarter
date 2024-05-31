@@ -10,7 +10,7 @@ public class WorkoutExercise
     private String instructions;
     private boolean isExpanded;
 
-    // Constructor
+
     public WorkoutExercise(String name, String type, String muscle, String equipment, String difficulty, String instructions) {
         this.name = name;
         this.type = type;
@@ -21,7 +21,7 @@ public class WorkoutExercise
         this.isExpanded = false;
     }
 
-    // Getters and Setters
+
     public String getName() {
         return name;
     }

@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -33,7 +32,6 @@
             android:name=".View.Activities.ForgotPasswordActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <!-- Add any intent filters or other attributes if necessary -->
         </activity>
         <activity
             android:name=".View.Activities.SignUpActivity"
@@ -42,9 +40,6 @@
         </activity>
 
         <activity android:name="com.caticu.workingoutsmarter.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity><activity android:name="com.caticu.workingoutsmarter.View.Activities.ActiveWorkoutsActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>

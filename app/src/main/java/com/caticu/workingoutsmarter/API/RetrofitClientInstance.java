@@ -10,10 +10,13 @@ public class RetrofitClientInstance {
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://api.api-ninjas.com/v1/";
 
-    public static Retrofit getRetrofitInstance() {
-        if (retrofit == null) {
+    public static Retrofit getRetrofitInstance()
+    {
+        if (retrofit == null)
+        {
             OkHttpClient client = new OkHttpClient.Builder()
-                    .addInterceptor(chain -> {
+                    .addInterceptor(chain ->
+                    {
                         Request original = chain.request();
                         Request request = original.newBuilder()
                                 .header("X-Api-Key", "jEBW0AlhrhJGC7NOCYcZNA==CShfl7pH7agORoV8")

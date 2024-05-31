@@ -44,10 +44,7 @@ public class ForgotPasswordActivity extends AppCompatActivity
         });
     }
 
-    /**
-     * Reset the password using firebase
-     * @param email
-     */
+
     public void resetPassword(String email)
     {
         firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(this, new OnCompleteListener<Void>()

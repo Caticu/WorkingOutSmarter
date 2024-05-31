@@ -28,17 +28,22 @@ public class WorkoutRepository implements IWorkoutRepository {
         profileRef = database.getReference("Workouts");
     }
 
-    public static synchronized WorkoutRepository getInstance() {
-        if (instance == null) {
+    public static synchronized WorkoutRepository getInstance()
+    {
+        if (instance == null)
+        {
             instance = new WorkoutRepository();
         }
         return instance;
     }
 
     @Override
-    public void saveWorkouts(String userId, List<Workout> workouts) {
-        for (Workout workout : workouts) {
-            String key = profileRef.child(userId).push().getKey(); // Generate a unique push ID
+    public void saveWorkouts(String userId, List<Workout> workouts)
+    {
+        for (Workout workout : workouts)
+        {
+            // Generate a unique ID fr profile
+            String key = profileRef.child(userId).push().getKey();
             Map<String, Object> workoutDetails = new HashMap<>();
             workoutDetails.put("name", workout.getName());
             workoutDetails.put("date", workout.getDate());
@@ -53,24 +58,30 @@ public class WorkoutRepository implements IWorkoutRepository {
             }
             workoutDetails.put("sets", sets);
 
-            // Save workout using the generated push ID
-            if (key != null) {
+
+            if (key != null)
+            {
                 profileRef.child(userId).child(key).setValue(workoutDetails);
             }
         }
     }
 
     @Override
-    public LiveData<List<Set>> getSetsForWorkoutName(String workoutName, String userId) {
+    public LiveData<List<Set>> getSetsForWorkoutName(String workoutName, String userId)
+    {
         MutableLiveData<List<Set>> setsLiveData = new MutableLiveData<>();
         Query query = profileRef.child(userId).orderByChild("name").equalTo(workoutName);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
                 List<Set> sets = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren())
+                {
                     Workout workout = snapshot.getValue(Workout.class);
-                    if (workout != null && workout.getSets() != null) {
+                    if (workout != null && workout.getSets() != null)
+                    {
                         sets.addAll(workout.getSets());
                     }
                 }
@@ -78,7 +89,8 @@ public class WorkoutRepository implements IWorkoutRepository {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
                 setsLiveData.setValue(null);
             }
         });
@@ -86,15 +98,20 @@ public class WorkoutRepository implements IWorkoutRepository {
     }
 
     @Override
-    public LiveData<List<String>> getWorkoutDates(String userId) {
+    public LiveData<List<String>> getWorkoutDates(String userId)
+    {
         MutableLiveData<List<String>> datesLiveData = new MutableLiveData<>();
-        profileRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        profileRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
                 List<String> dates = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren())
+                {
                     Workout workout = snapshot.getValue(Workout.class);
-                    if (workout != null && workout.getDate() != null && !dates.contains(workout.getDate())) {
+                    if (workout != null && workout.getDate() != null && !dates.contains(workout.getDate()))
+                    {
                         dates.add(workout.getDate());
                     }
                 }
@@ -102,7 +119,8 @@ public class WorkoutRepository implements IWorkoutRepository {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
                 datesLiveData.setValue(null);
             }
         });
@@ -110,16 +128,21 @@ public class WorkoutRepository implements IWorkoutRepository {
     }
 
     @Override
-    public LiveData<List<Workout>> getWorkoutsForDate(String date, String userId) {
+    public LiveData<List<Workout>> getWorkoutsForDate(String date, String userId)
+    {
         MutableLiveData<List<Workout>> workoutsLiveData = new MutableLiveData<>();
         Query query = profileRef.child(userId).orderByChild("date").equalTo(date);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
                 List<Workout> workouts = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren())
+                {
                     Workout workout = snapshot.getValue(Workout.class);
-                    if (workout != null) {
+                    if (workout != null)
+                    {
                         workouts.add(workout);
                     }
                 }
@@ -127,7 +150,8 @@ public class WorkoutRepository implements IWorkoutRepository {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
                 workoutsLiveData.setValue(null);
             }
         });

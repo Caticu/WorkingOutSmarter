@@ -23,7 +23,8 @@ public class SignUpActivity extends AppCompatActivity
     private SignUpViewModel signUpViewModel;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
@@ -37,26 +38,32 @@ public class SignUpActivity extends AppCompatActivity
 
         signUpViewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
 
-        createAccountButton.setOnClickListener(view -> {
+        createAccountButton.setOnClickListener(view ->
+        {
             String userEmail = email.getText().toString();
             String userPassword = password.getText().toString();
             signUpViewModel.createUserWithEmailAndPassword(userEmail, userPassword);
         });
 
-        signUpViewModel.getSignUpSuccess().observe(this, success -> {
-            if (success) {
+        signUpViewModel.getSignUpSuccess().observe(this, success ->
+        {
+            if (success)
+            {
                 Toast.makeText(SignUpActivity.this, "The account has been created!", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
 
-        signUpViewModel.getSignUpError().observe(this, error -> {
-            if (error) {
+        signUpViewModel.getSignUpError().observe(this, error ->
+        {
+            if (error)
+            {
                 Toast.makeText(SignUpActivity.this, "There was a problem creating your account!", Toast.LENGTH_LONG).show();
             }
         });
 
-        signUpViewModel.getLoading().observe(this, loading -> {
+        signUpViewModel.getLoading().observe(this, loading ->
+        {
             progressBar.setVisibility(loading ? View.VISIBLE : View.INVISIBLE);
             createAccountButton.setEnabled(!loading);
         });

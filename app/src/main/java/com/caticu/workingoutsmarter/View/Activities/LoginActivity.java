@@ -40,7 +40,8 @@ public class LoginActivity extends AppCompatActivity
     private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
@@ -61,13 +62,17 @@ public class LoginActivity extends AppCompatActivity
         signInGoogle.setOnClickListener(view -> loginViewModel.signInWithGoogle());
 
         checkIfUserIsLoggedIn();
-        mail.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
+        mail.setOnFocusChangeListener((v, hasFocus) ->
+        {
+            if (hasFocus)
+            {
                 mail.setText("");
             }
         });
-        password.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
+        password.setOnFocusChangeListener((v, hasFocus) ->
+        {
+            if (hasFocus)
+            {
                 password.setText("");
             }
         });
@@ -146,7 +151,7 @@ public class LoginActivity extends AppCompatActivity
     {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
-            // User is already logged in, navigate to WorkoutActivity
+            // User is already logged in, go to WorkoutActivity
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();

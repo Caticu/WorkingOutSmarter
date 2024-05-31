@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Main Content Layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -49,7 +48,6 @@
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start">
-        <!-- Drawer Fragment will be loaded here -->
     </FrameLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

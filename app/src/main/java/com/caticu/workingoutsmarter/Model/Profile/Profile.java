@@ -8,8 +8,8 @@ public class Profile {
     public String Id;
     public String imageUri;
 
+    // empty contrsc for firebase
     public Profile() {
-        // Default constructor required for Firebase
     }
 
     public Profile(String name, int age, double height, double weight, String Id, String imageUri) {

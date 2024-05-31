@@ -46,6 +46,8 @@ public class ActiveWorkoutsFragment extends Fragment implements ActiveWorkoutsAd
     private String selectedDate;
     private SetsViewModel setsViewModel;
     private TextView emptyListTextView;
+
+    private int countMessage =0;
     private Toolbar toolbar;
 
     @Nullable
@@ -158,7 +160,7 @@ public class ActiveWorkoutsFragment extends Fragment implements ActiveWorkoutsAd
         emptyListTextView.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
         buttonFinishWorkout.setEnabled(!isEmpty);
 
-        if (isEmpty) {
+        if (isEmpty && countMessage ==0) {
             showEmptyListDialog();
         }
     }
@@ -166,11 +168,10 @@ public class ActiveWorkoutsFragment extends Fragment implements ActiveWorkoutsAd
     private void showEmptyListDialog() {
         if (getActivity() != null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage("No exercises are selected. Please navigate to the Workouts page and add one onto the list!")
-                    .setPositiveButton("OK", (dialog, id) -> dialog.dismiss());
-
+            builder.setMessage("No exercises are selected. Please navigate to the Workouts page and add one onto the list!").setPositiveButton("OK", (dialog, id) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
+            countMessage = 1;
         }
     }
 

@@ -25,7 +25,16 @@ public class WorkoutFromAPI implements Serializable {
     public String getMuscle() { return muscle; }
     public void setMuscle(String muscle) { this.muscle = muscle; }
 
-    public String getEquipment() { return  "Equipment needed: "+'\n'+equipment; }
+    public String getEquipment() { return  "Equipment needed: "+'\n'+FormatEquipment(equipment); }
+
+    private String FormatEquipment(String equipment)
+    {
+        if (equipment == null) {
+            return null;
+        }
+        return equipment.replace("_", " ");
+    }
+
     public void setEquipment(String equipment) { this.equipment = equipment; }
 
     public String getDifficulty() { return difficulty; }
@@ -34,7 +43,7 @@ public class WorkoutFromAPI implements Serializable {
     public String getInstructions() { return instructions; }
     public void setInstructions(String instructions) { this.instructions = instructions; }
 
-    public boolean isSelected() { return isSelected; } // Add this getter
+    public boolean isSelected() { return isSelected; }
     public void setSelected(boolean selected) { isSelected = selected; }
     // Method to format instructions text
     private SpannableStringBuilder FormatInstructions(String text) {
