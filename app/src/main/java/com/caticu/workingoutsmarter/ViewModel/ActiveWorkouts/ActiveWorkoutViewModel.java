@@ -19,7 +19,7 @@ public class ActiveWorkoutViewModel extends ViewModel {
 
     public ActiveWorkoutViewModel(IWorkoutRepository workoutRepository) {
         this.workoutRepository = workoutRepository;
-        workouts = new MutableLiveData<>(); // Initialize if necessary
+        workouts = new MutableLiveData<>();
     }
 
     public LiveData<List<Workout>> getWorkouts() {

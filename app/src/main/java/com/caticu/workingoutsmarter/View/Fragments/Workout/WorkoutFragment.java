@@ -30,7 +30,7 @@ import com.caticu.workingoutsmarter.R;
 import com.caticu.workingoutsmarter.Repository.WorkoutRepository;
 import com.caticu.workingoutsmarter.View.Adapter.WorkoutAdapter;
 import com.caticu.workingoutsmarter.API.ExerciseAPIViewModel;
-import com.caticu.workingoutsmarter.View.Fragments.WorkoutDetailFragment;
+import com.caticu.workingoutsmarter.View.Fragments.Workout.WorkoutDetailFragment;
 import com.caticu.workingoutsmarter.ViewModel.ActiveWorkouts.ActiveWorkoutViewModel;
 import com.caticu.workingoutsmarter.ViewModel.ActiveWorkouts.ActiveWorkoutViewModelFactory;
 

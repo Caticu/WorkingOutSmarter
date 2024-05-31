@@ -48,7 +48,7 @@ public class DatePickerFragment extends Fragment {
             int month = datePicker.getMonth();
             int year = datePicker.getYear();
 
-            // Format the date as desired
+
             String date = day + "/" + (month + 1) + "/" + year;
             if (listener != null) {
                 listener.onDateSelected(date);

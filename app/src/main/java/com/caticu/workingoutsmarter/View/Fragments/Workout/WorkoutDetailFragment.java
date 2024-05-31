@@ -1,4 +1,4 @@
-package com.caticu.workingoutsmarter.View.Fragments;
+package com.caticu.workingoutsmarter.View.Fragments.Workout;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
